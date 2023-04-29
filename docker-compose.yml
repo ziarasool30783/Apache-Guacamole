@@ -1,5 +1,6 @@
 version: '2.0'
-
+#Reference
+#https://guacamole.apache.org/doc/gug/guacamole-architecture.html
 # networks
 # create a network 'guacnetwork_compose' in mode 'bridged'
 networks:
