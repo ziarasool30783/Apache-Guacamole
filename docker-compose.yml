@@ -14,7 +14,7 @@ services:
   # guacd
   guacd:
     container_name: guacd_compose
-    image: guacamole/guacd
+    image: 172.31.81.47:5000/guacd
     networks:
       guacnetwork_compose:
     restart: always
@@ -29,7 +29,7 @@ services:
       POSTGRES_DB: guacamole_db
       POSTGRES_PASSWORD: 'ChooseYourOwnPasswordHere1234'
       POSTGRES_USER: guacamole_user
-    image: postgres:15.2-alpine
+    image: 172.31.81.47:5000/postgres
     networks:
       guacnetwork_compose:
     restart: always
@@ -49,7 +49,7 @@ services:
       POSTGRES_HOSTNAME: postgres
       POSTGRES_PASSWORD: 'ChooseYourOwnPasswordHere1234'
       POSTGRES_USER: guacamole_user
-    image: guacamole/guacamole
+    image: 172.31.81.47:5000/guacamole
     links:
     - guacd
     networks:
@@ -62,7 +62,7 @@ services:
   nginx:
    container_name: nginx_guacamole_compose
    restart: always
-   image: nginx
+   image: 172.31.81.47:5000/nginx
    volumes:
    - ./nginx/templates:/etc/nginx/templates:ro
    - ./nginx/ssl/self.cert:/etc/nginx/ssl/self.cert:ro
